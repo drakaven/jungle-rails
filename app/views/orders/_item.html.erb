@@ -1,22 +1,21 @@
+<% product = line_item.product %>
 
 <tr>
   <td>
-    <%=  line_item.product[:image] %>
+    <%=  image_tag product.image.tiny %>
   </td>
-
   <td>
-    <%= line_item.product[:name] %>
+    <h4><%= product.name %></h4>
     <br>
-    <%= line_item.product[:description] %>
+    <%= product.description %>
   </td>
   <td>
-  <%= line_item.product[:price_cents] %>
+  <%= product.price %>
   </td>
   <td>
     <%= line_item.quantity %>
   </td>
   <td>
-    <%= line_item.quantity * line_item.product[:price_cents] %>
+    <%= line_item.quantity * product.price %>
   </td>
-
 </tr>
