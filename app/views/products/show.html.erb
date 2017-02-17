@@ -25,7 +25,10 @@
         </dl>
       </div>
     </div>
-
+    <div class="row">
+      <% @reviews.each do |review| %>
+          <%= "Rating: #{review.rating} Description: #{review.description} User: #{review.user_id}" %>
+      <% end %>
+    </div>
   </article>
-
-</section>
+  </section>

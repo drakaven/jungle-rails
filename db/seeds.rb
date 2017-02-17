@@ -138,7 +138,7 @@ user2 = User.create! name: 'Alice', password: 'password', email: 'alice@email.co
 user3 = User.create! name: 'Marco', password: 'password', email: 'marco@email.com'
 
 
-user1.reviews.create! product_id: 2, description: "yeah!",rating: 3
+user1.reviews.create! product_id: 1, description: "yeah!",rating: 3
 user2.reviews.create! product_id: 1, description: "oh no",rating: 5
 user3.reviews.create! product_id: 3, description: "oh no",rating: 2
 
