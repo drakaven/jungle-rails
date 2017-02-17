@@ -132,5 +132,14 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+# create users
+user1 = User.create! name: 'Bob', password: 'password',  email: 'bob@email.com'
+user2 = User.create! name: 'Alice', password: 'password', email: 'alice@email.com'
+user3 = User.create! name: 'Marco', password: 'password', email: 'marco@email.com'
+
+
+user1.reviews.create! product_id: 2, description: "yeah!",rating: 3
+user2.reviews.create! product_id: 1, description: "oh no",rating: 5
+user3.reviews.create! product_id: 3, description: "oh no",rating: 2
 
 puts "DONE!"
