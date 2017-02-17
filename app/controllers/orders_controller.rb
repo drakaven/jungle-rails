@@ -1,8 +1,12 @@
 class OrdersController < ApplicationController
 
   def show
+    @join = Order.joins(:line_items)
     @order = Order.find(params[:id])
     @line_items = LineItem.where(order_id: params[:id])
+
+      #alternate join approach
+      #@order = Order.joins(:line_items).where(id: params[:id])
   end
 
   def create
