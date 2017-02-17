@@ -1,5 +1,14 @@
 class CartsController < ApplicationController
 
+  before_action :empty_test, only: [:show]
+
+  def empty_test
+    if cart == {}
+      redirect_to :root
+      flash[:notice] = "Your Cart is Empty"
+    end
+  end
+
   def show
   end
 
