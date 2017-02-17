@@ -1,2 +1,9 @@
 Hi
 Sample mail sent using smtp.
+Order #<%= @order.id %>
+Thank you for your order! <%= @order.email %>
+
+<% @line_items.each do |line_item| %>
+<%=  line_item.product.name  %>
+<%=  line_item.product.description  %>
+<% end %>
