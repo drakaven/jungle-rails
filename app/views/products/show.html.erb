@@ -31,4 +31,16 @@
       <% end %>
     </div>
   </article>
+  <article>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-1">
+        <%= form_for [@product, @review] do |form| %>
+
+            <%= form.select :rating, options_for_select(1..5), class: 'form-control' %>
+            <%= form.text_field :description, class: 'form-control' %>
+            <%= form.submit 'Post Review', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </article>
   </section>
