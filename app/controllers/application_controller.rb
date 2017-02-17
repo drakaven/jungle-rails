@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
 
+
   def cart
     # value = cookies[:cart] || JSON.generate({})
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
@@ -29,4 +30,10 @@ class ApplicationController < ActionController::Base
     cookies[:cart]
   end
 
+  protected
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV['USERNAME_BASIC'] && password == ENV['PASSWORD_BASIC']
+    end
+  end
 end

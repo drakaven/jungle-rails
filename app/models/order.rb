@@ -13,5 +13,4 @@ class Order < ActiveRecord::Base
     OrderMailer.order_email(self).deliver_now
   end
 
-
 end
