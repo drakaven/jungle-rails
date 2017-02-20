@@ -1,11 +1,12 @@
 class CartsController < ApplicationController
 
-  before_action :empty_test, only: [:show]
+  before_action :cart_empty_notice, only: [:show, :remove_item]
 
-  def empty_test
+
+  def cart_empty_notice
     if cart == {}
-      redirect_to :root
       flash[:notice] = "Your Cart is Empty"
+      redirect_to :root
     end
   end
 
@@ -15,7 +16,7 @@ class CartsController < ApplicationController
   def add_item
     product_id = params[:product_id].to_s
 
-    item = cart[product_id] || { "quantity" => 0 }
+    item = cart[product_id] || {"quantity" => 0}
     item["quantity"] += 1
     cart[product_id] = item
     update_cart cart
@@ -26,7 +27,7 @@ class CartsController < ApplicationController
   def remove_item
     product_id = params[:product_id].to_s
 
-    item = cart[product_id] || { "quantity" => 1 }
+    item = cart[product_id] || {"quantity" => 1}
     item["quantity"] -= 1
     cart[product_id] = item
     cart.delete(product_id) if item["quantity"] < 1

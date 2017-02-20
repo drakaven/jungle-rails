@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :authenticate
+  before_action :authorize
 
   def create
     Review.create!(
@@ -17,5 +17,4 @@ class ReviewsController < ApplicationController
     @review.destroy
     redirect_to :back
   end
-
-  end
+end
