@@ -2,7 +2,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-
 // App
 @import "products";
 
@@ -11,24 +10,24 @@ body {
   padding-top: 70px;
 }
 
-#nav-login{
+#nav-login {
   padding: 15px;
 }
 
-#nav-login a{
+#nav-login a {
   display: inline;
   padding: 10px;
 }
 
-.product_reviews{
+.product_reviews {
   padding: 10px;
 
-  tr{padding: 15px;
+  tr {
+    padding: 15px;
 
-
-  td {padding: 10px}
+    td {
+      padding: 10px
+    }
   }
-
-
 
 }

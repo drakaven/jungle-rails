@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
 
-  before_action :cart_empty_notice, only: [:show, :remove_item]
+  before_action :cart_empty_notice, only: :show
 
 
   def cart_empty_notice
