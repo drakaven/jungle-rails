@@ -26,27 +26,39 @@
       </div>
     </div>
     <div class="row">
-      <% @reviews.each do |review| %>
-
-          <%= "Rating: #{review.rating} Description: #{review.description} User: #{review.user_id}" %>
-          <% if current_user != nil && review.user_id == current_user.id %>
-              <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+      <div class="col-sm-6 col-sm-offset-1 product_reviews">
+        <h3>Reviews!</h3>
+        <table>
+          <% @reviews.each do |review| %>
+              <tr>
+                <td><%= "Rating: #{review.rating} User: #{User.find(review.user_id).name}" %>
+                  <% if current_user != nil && review.user_id == current_user.id %>
+                      <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: {confirm: "Are you sure?"} %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <%= "#{review.description}" %>
+              </tr>
+              </td>
           <% end %>
-        <% end %>
-    </div>
-  </article>
-  <% if current_user != nil %>
-  <article>
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-1">
-        <% @new_review %>
-        <%= form_for [@product, @new_review] do |form| %>
-            <%= form.select :rating, options_for_select(1..5), class: 'form-control' %>
-            <%= form.text_field :description, class: 'form-control' %>
-            <%= form.submit 'Post Review', class: 'btn btn-primary' %>
-        <% end %>
+        </table>
       </div>
     </div>
   </article>
+  <% if current_user != nil %>
+      <article>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-1">
+            <% @new_review %>
+            <%= form_for [@product, @new_review] do |form| %>
+                Rating <%= form.select :rating, options_for_select(1..5), class: 'form-control' %>
+                <%= form.text_field :description, class: 'form-control' %>
+                <%= form.submit 'Post Review', class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      </article>
   <% end %>
-  </section>
+</section>
