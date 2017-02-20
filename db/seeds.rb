@@ -136,6 +136,7 @@ cat3.products.create!({
 user1 = User.create! name: 'Bob', password: 'password',  email: 'bob@email.com'
 user2 = User.create! name: 'Alice', password: 'password', email: 'alice@email.com'
 user3 = User.create! name: 'Marco', password: 'password', email: 'marco@email.com'
+user4 = User.create! name: 'K', password: 'password', email: 'kvirani@gmail.com'
 
 
 user1.reviews.create! product_id: 1, description: "yeah!",rating: 3
