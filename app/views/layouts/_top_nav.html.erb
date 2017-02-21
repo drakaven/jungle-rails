@@ -31,7 +31,7 @@
           <% if current_user %>
               Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
           <% else %>
-              <%= link_to 'Login', '/login'  %> | <%= link_to 'Signup', '/users' %>
+              <%= link_to 'Login', '/login' , id: 'Login' %> | <%= link_to 'Signup', '/users' %>
           <% end %>
         </li>
         <li class="dropdown">
